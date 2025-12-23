@@ -286,19 +286,23 @@ public class BasePage {
                 getElement(driver, locator));
     }
 
-    public void waitElementVisible(WebDriver driver, String locator){
+    public void waitForElementVisible(WebDriver driver, String locator){
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
     }
 
-    public void waitElementPresence(WebDriver driver, String locator){
+    public void waitForElementSelected(WebDriver driver, String locator){
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeSelected(getByXpath(locator)));
+    }
+
+    public void waitForElementPresence(WebDriver driver, String locator){
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.presenceOfElementLocated(getByXpath(locator)));
     }
 
-    public void waitElementInvisible(WebDriver driver, String locator){
+    public void waitForElementInvisible(WebDriver driver, String locator){
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOfElementLocated(getByXpath(locator)));
     }
 
-    public void waitElementClickable(WebDriver driver, String locator){
+    public void waitForElementClickable(WebDriver driver, String locator){
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
     }
 
