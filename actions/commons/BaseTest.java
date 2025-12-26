@@ -12,15 +12,15 @@ public class BaseTest {
     private WebDriver driver;
 
     protected WebDriver getBrowserDriver(String browserName){
-        switch (browserName){
-            case "firefox":
+        BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+        switch (browserList){
+            case FIRFOX:
                 driver = new FirefoxDriver();
                 break;
-            case "chrome":
+            case CHROME:
                 driver = new ChromeDriver();
                 break;
-            case "edge":
-                System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "\\browserExtensions\\msedgedriver.exe");
+            case EDGE:
                 driver = new EdgeDriver();
                 break;
         }
