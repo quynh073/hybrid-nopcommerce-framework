@@ -14,7 +14,7 @@ public class BaseTest {
     protected WebDriver getBrowserDriver(String browserName){
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
         switch (browserList){
-            case FIRFOX:
+            case FIREFOX:
                 driver = new FirefoxDriver();
                 break;
             case CHROME:
