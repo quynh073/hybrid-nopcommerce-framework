@@ -5,12 +5,14 @@ import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import pageUIs.CustomerInfoPageUI;
 
-public class CustomerInfoPageObject extends BasePage {
+public class CustomerInfoPageObject extends SidebarPageObject {
     private WebDriver driver;
 
     public CustomerInfoPageObject(WebDriver driver){
+        super(driver);
         this.driver =driver;
     }
+
     public boolean isGenderRadioSelected() {
         waitForElementSelected(driver, CustomerInfoPageUI.GENDER_MALE_RADIO);
         return isElementSelected(driver, CustomerInfoPageUI.GENDER_MALE_RADIO);

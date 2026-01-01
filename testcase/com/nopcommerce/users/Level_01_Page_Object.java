@@ -18,6 +18,10 @@ public class Level_01_Page_Object extends BaseTest {
     private CustomerInfoPageObject customerInfoPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
+    private AddressPageObject addressPageObject;
+    private OrderPageObject orderPageObject;
+    private RewardPointPageObject rewardPointPageObject;
+
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName){
@@ -68,6 +72,19 @@ public class Level_01_Page_Object extends BaseTest {
         Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(), lastName);
         Assert.assertEquals(customerInfoPage.getEmailTextboxValue(), emailAddress);
         Assert.assertEquals(customerInfoPage.getCompanyNameTextboxValue(), companyName);
+    }
+
+    @Test
+    public void User_Switch_Page(){
+        addressPageObject = customerInfoPage.openAddressPage();
+
+        rewardPointPageObject = addressPageObject.openRewardPointPage();
+
+        orderPageObject = rewardPointPageObject.openOrderPage();
+
+        addressPageObject = orderPageObject.openAddressPage();
+
+        customerInfoPage = addressPageObject.openCustomerInfoPage();
     }
 
     @AfterClass
