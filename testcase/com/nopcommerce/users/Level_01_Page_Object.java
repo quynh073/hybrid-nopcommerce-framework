@@ -8,26 +8,27 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
+import pageObjects.users.*;
 
 
 public class Level_01_Page_Object extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
-    private LoginPageObject loginPage;
-    private CustomerInfoPageObject customerInfoPage;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPO loginPage;
+    private UserCustomerInfoPO customerInfoPage;
     private String firstName, lastName, emailAddress, companyName, password;
 
-    private AddressPageObject addressPageObject;
-    private OrderPageObject orderPageObject;
-    private RewardPointPageObject rewardPointPageObject;
+    private UserAddressPO addressPageObject;
+    private UserOrderPO orderPageObject;
+    private UserRewardPointPO rewardPointPageObject;
 
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browserName){
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGenerator.getHomePage(driver);
+        homePage = PageGenerator.getUserHomePage(driver);
 
         firstName = "lan";
         lastName = "nguyen";
@@ -38,7 +39,7 @@ public class Level_01_Page_Object extends BaseTest {
 
     @Test
     public void TC_01_Register(){
-        registerPage = homePage.clickRegisterLink();
+        registerPage = homePage.openRegisterPage();
 
         registerPage.clickToGenderRadio();
         registerPage.enterToFirstNameTextbox(firstName);
@@ -56,7 +57,7 @@ public class Level_01_Page_Object extends BaseTest {
     public void TC_02_Login(){
         homePage = registerPage.clickToLogoutLink();
 
-        loginPage = homePage.clickToLoginLink();
+        loginPage = homePage.openLoginPage();
 
         homePage = loginPage.loginToSystem(emailAddress, password);
 
@@ -65,7 +66,7 @@ public class Level_01_Page_Object extends BaseTest {
 
     @Test
     public void TC_03_MyAccount(){
-        customerInfoPage = homePage.clickToMyAccountLink();
+        customerInfoPage = homePage.openCustomerInfoPage();
 
         Assert.assertTrue(customerInfoPage.isGenderRadioSelected());
         Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(), firstName);
