@@ -1,6 +1,7 @@
 package com.nopcommerce.users;
 
 import commons.BaseTest;
+import commons.GlobalConstant;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -18,8 +19,6 @@ public class Level_02_Switch_Site_Url extends BaseTest {
     private WebDriver driver;
 
     private String firstName, lastName, emailAddress, companyName, password;
-    private String userUrl, adminUrl;
-    private String adminEmailAddress, adminPassword;
 
     private UserHomePO userHomePage;
     private UserRegisterPO userRegisterPage;
@@ -36,12 +35,8 @@ public class Level_02_Switch_Site_Url extends BaseTest {
         emailAddress = "lan" + generateRandomNumber() + "@gmail.com";
         companyName = "fighting";
         password = "123456";
-        userUrl = "http://demo.nopcommerce";
-        adminUrl = "http://demo.nopcommerce/Admin";
-        adminEmailAddress = "quynh@gmail.com";
-        adminPassword = "123456";
 
-        driver = getBrowserDriver(browserName, userUrl);
+        driver = getBrowserDriver(browserName, GlobalConstant.DEV_USER_URL);
 
         userHomePage = PageGenerator.getUserHomePage(driver);
         userRegisterPage = userHomePage.openRegisterPage();
@@ -66,16 +61,16 @@ public class Level_02_Switch_Site_Url extends BaseTest {
         userHomePage = userLoginPage.loginToSystem(emailAddress, password);
         Assert.assertTrue(userHomePage.isMyAccountLinkDisplayed());
 
-        userHomePage.openPageUrl(driver, adminUrl);
+        userHomePage.openPageUrl(driver, GlobalConstant.DEV_ADMIN_URL);
         adminLoginPage = PageGenerator.getAdminLoginPage(driver);
-        adminLoginPage.enterToEmailTextbox(adminEmailAddress);
-        adminLoginPage.enterToPasswordTextbox(adminPassword);
+        adminLoginPage.enterToEmailTextbox(GlobalConstant.ADMIN_USERNAME);
+        adminLoginPage.enterToPasswordTextbox(GlobalConstant.ADMIN_PASSWORD);
         adminDasboardPage = adminLoginPage.clickToLoginButton();
     }
 
     @Test
     public void Role_02_Admin_Site_To_User_Site(){
-        adminDasboardPage.openPageUrl(driver, userUrl);
+        adminDasboardPage.openPageUrl(driver, GlobalConstant.DEV_USER_URL);
         userHomePage = PageGenerator.getUserHomePage(driver);
         userHomePage.openCustomerInfoPage();
     }

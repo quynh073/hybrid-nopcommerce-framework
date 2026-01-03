@@ -24,8 +24,8 @@ public class BaseTest {
                 driver = new EdgeDriver();
                 break;
         }
-        driver.get("http://demo.nopcommerce/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.get(GlobalConstant.DEV_USER_URL);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstant.LONG_TIME));
         return driver;
     }
 
@@ -43,7 +43,7 @@ public class BaseTest {
                 break;
         }
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstant.LONG_TIME));
         return driver;
     }
 
