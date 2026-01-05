@@ -77,15 +77,15 @@ public class Level_01_Page_Object extends BaseTest {
 
     @Test
     public void User_Switch_Page(){
-        addressPageObject = customerInfoPage.openAddressPage();
+        addressPageObject = (UserAddressPO) customerInfoPage.openSidebarLinkByName("Addresses");
 
-        rewardPointPageObject = addressPageObject.openRewardPointPage();
+        rewardPointPageObject = (UserRewardPointPO) addressPageObject.openSidebarLinkByName("Reward points");
 
-        orderPageObject = rewardPointPageObject.openOrderPage();
+        orderPageObject = (UserOrderPO) rewardPointPageObject.openSidebarLinkByName("Orders");
 
-        addressPageObject = orderPageObject.openAddressPage();
+        addressPageObject = (UserAddressPO) orderPageObject.openSidebarLinkByName("Addresses");
 
-        customerInfoPage = addressPageObject.openCustomerInfoPage();
+        customerInfoPage = (UserCustomerInfoPO) addressPageObject.openSidebarLinkByName("Customer info");
     }
 
     @AfterClass
