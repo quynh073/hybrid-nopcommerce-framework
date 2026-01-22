@@ -7,9 +7,12 @@
       <sourceFolder url="file://$MODULE_DIR$/interface" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/testcase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/reportConfigs" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="selenium-testng" level="project" />
+    <orderEntry type="library" name="log4j2" level="project" />
+    <orderEntry type="library" name="extent5" level="project" />
   </component>
 </module>

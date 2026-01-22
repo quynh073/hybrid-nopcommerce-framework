@@ -2,10 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="NopCommerce Automation Testing">
 
+    <listeners>
+        <listener class-name="reportConfigs.ExtentTestListener"></listener>
+    </listeners>
+
     <test name="Run on Firefox">
         <parameter name="browser" value="firefox"></parameter>
         <classes>
-            <class name="com.nopcommerce.users.Level_02_Switch_Site_Url" />
+            <class name="com.nopcommerce.users.Level_01_Page_Object" />
         </classes>
     </test>
 

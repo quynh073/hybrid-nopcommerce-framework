@@ -1,5 +1,8 @@
 package commons;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,6 +15,15 @@ import java.util.Random;
 
 public class BaseTest {
     private WebDriver driver;
+    protected final Logger log;
+
+    public BaseTest() {
+        log = (Logger) LogManager.getLogger(getClass());
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     protected WebDriver getBrowserDriver(String browserName){
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
