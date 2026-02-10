@@ -11,9 +11,9 @@ import org.testng.annotations.Test;
 import pageObjects.PageGenerator;
 import pageObjects.admin.AdminDashboardPO;
 import pageObjects.admin.AdminLoginPO;
-import pageObjects.users.UserHomePO;
-import pageObjects.users.UserLoginPO;
-import pageObjects.users.UserRegisterPO;
+import pageObjects.user.UserHomePO;
+import pageObjects.user.UserLoginPO;
+import pageObjects.user.UserRegisterPO;
 
 public class Level_02_Switch_Site_Url extends BaseTest {
     private WebDriver driver;

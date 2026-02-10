@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
-import pageObjects.users.*;
+import pageObjects.user.*;
 import reportConfigs.ExtentManager;
 
 import java.lang.reflect.Method;
@@ -139,8 +139,8 @@ public class Level_01_Page_Object extends BaseTest {
         customerInfoPage = (UserCustomerInfoPO) addressPageObject.openSidebarLinkByName("Customer info");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClass(){
-        driver.quit();
+        closeBrowserDriver();
     }
 }

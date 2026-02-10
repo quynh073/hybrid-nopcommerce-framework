@@ -1,9 +1,9 @@
-package pageObjects.users;
+package pageObjects.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.PageGenerator;
-import pageUIs.users.UserSidebarPageUI;
+import pageUIs.user.UserSidebarPUI;
 
 public class UserSidebarPO extends BasePage {
     private WebDriver driver;
@@ -39,8 +39,8 @@ public class UserSidebarPO extends BasePage {
 //    }
 
     public UserSidebarPO openSidebarLinkByName(String pageName){
-        waitForElementVisible(driver, UserSidebarPageUI.DYNAMIC_LINK_PAGE_NAME, pageName);
-        clickToElement(driver, UserSidebarPageUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        waitForElementVisible(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        clickToElement(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
         switch (pageName){
             case "Customer info":
                 return PageGenerator.getUserCustomerInfoPage(driver);
@@ -56,7 +56,7 @@ public class UserSidebarPO extends BasePage {
     }
 
     public void openSidebarLinkByNames(String pageName){
-        waitForElementVisible(driver, UserSidebarPageUI.DYNAMIC_LINK_PAGE_NAME, pageName);
-        clickToElement(driver, UserSidebarPageUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        waitForElementVisible(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        clickToElement(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
     }
 }

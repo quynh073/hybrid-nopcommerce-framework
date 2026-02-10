@@ -1,6 +1,6 @@
-package pageUIs.users;
+package pageUIs.user;
 
-public class UserCustomerInfoPageUI {
+public class UserCustomerInfoPUI {
     public static final String GENDER_MALE_RADIO = "id=gender-male";
     public static final String FIRST_NAME_TEXTBOX = "id=FirstName";
     public static final String LAST_NAME_TEXTBOX = "id=LastName";

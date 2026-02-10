@@ -1,9 +1,9 @@
-package pageObjects.users;
+package pageObjects.user;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.PageGenerator;
-import pageUIs.users.UserHomePageUI;
+import pageUIs.user.UserHomePUI;
 
 public class UserHomePO extends BasePage {
     private WebDriver driver;
@@ -13,24 +13,24 @@ public class UserHomePO extends BasePage {
     }
 
     public UserRegisterPO openRegisterPage() {
-        waitForElementClickable(driver, UserHomePageUI.REGISTER_LINK);
-        clickToElement(driver, UserHomePageUI.REGISTER_LINK);
+        waitForElementClickable(driver, UserHomePUI.REGISTER_LINK);
+        clickToElement(driver, UserHomePUI.REGISTER_LINK);
         return PageGenerator.getUserRegisterPage(driver);
     }
 
     public UserLoginPO openLoginPage() {
-        waitForElementClickable(driver, UserHomePageUI.LOGIN_LINK);
-        clickToElement(driver, UserHomePageUI.LOGIN_LINK);
+        waitForElementClickable(driver, UserHomePUI.LOGIN_LINK);
+        clickToElement(driver, UserHomePUI.LOGIN_LINK);
         return PageGenerator.getUserLoginPage(driver);
     }
 
     public boolean isMyAccountLinkDisplayed() {
-        return isElementDisplayed(driver, UserHomePageUI.MYACCOUNT_LINK);
+        return isElementDisplayed(driver, UserHomePUI.MYACCOUNT_LINK);
     }
 
     public UserCustomerInfoPO openCustomerInfoPage() {
-        waitForElementClickable(driver, UserHomePageUI.MYACCOUNT_LINK);
-        clickToElement(driver, UserHomePageUI.MYACCOUNT_LINK);
+        waitForElementClickable(driver, UserHomePUI.MYACCOUNT_LINK);
+        clickToElement(driver, UserHomePUI.MYACCOUNT_LINK);
         return PageGenerator.getUserCustomerInfoPage(driver);
     }
 }

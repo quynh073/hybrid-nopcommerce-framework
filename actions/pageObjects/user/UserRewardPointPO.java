@@ -1,11 +1,11 @@
-package pageObjects.users;
+package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
-public class UserOrderPO extends UserSidebarPO {
+public class UserRewardPointPO extends UserSidebarPO {
     private WebDriver driver;
 
-    public UserOrderPO(WebDriver driver) {
+    public UserRewardPointPO(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }

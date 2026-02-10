@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import pageObjects.admin.AdminDashboardPO;
 import pageObjects.admin.AdminLoginPO;
-import pageObjects.users.*;
+import pageObjects.user.*;
 
 public class PageGenerator {
     public static UserHomePO getUserHomePage(WebDriver driver){
