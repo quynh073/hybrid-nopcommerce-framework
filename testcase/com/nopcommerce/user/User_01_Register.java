@@ -18,10 +18,8 @@ public class User_01_Register extends BaseTest {
     private UserHomePO homePage;
     private UserRegisterPO registerPage;
 
-
     private String firstName, lastName, emailAddress, companyName, password;
     private String browserName;
-    private String invalidEmail;
 
     @Parameters({"browser", "userUrl"})
     @BeforeClass
@@ -35,8 +33,6 @@ public class User_01_Register extends BaseTest {
         emailAddress = "lehuong" + generateRandomNumber() + "@gmail.com";
         companyName = "QANop";
         password = "le123456#";
-
-
     }
 
     @Test
@@ -80,8 +76,6 @@ public class User_01_Register extends BaseTest {
 
         ExtentManager.getTest().log(Status.INFO, "STEP 03: Verify error message at email");
         Assert.assertEquals(registerPage.getEmailErrorMessage(), "Please enter a valid email address.");
-
-
     }
 
     @Test
@@ -115,7 +109,6 @@ public class User_01_Register extends BaseTest {
 
         ExtentManager.getTest().log(Status.INFO, "STEP 09: Verify success message");
         Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
-
     }
 
     @Test
@@ -162,7 +155,6 @@ public class User_01_Register extends BaseTest {
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify error message at password");
         Assert.assertEquals(registerPage.getPasswordErrorMessage(), "Password must meet the following rules: must have at least 6 characters and not greater than 64 characters");
-
     }
 
     @Test
@@ -185,7 +177,6 @@ public class User_01_Register extends BaseTest {
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify error message at confirm password");
         Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), "The password and confirmation password do not match.");
-
     }
 
     @AfterClass

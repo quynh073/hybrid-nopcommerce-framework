@@ -33,4 +33,17 @@ public class UserLoginPO extends BasePage {
         clickToLoginButton();
         return PageGenerator.getUserHomePage(driver);
     }
+
+    public String getEmailErrorMessage() {
+        waitForElementVisible(driver, UserLoginPUI.EMAIL_ERROR_MESSAGE);
+        return getElementText(driver, UserLoginPUI.EMAIL_ERROR_MESSAGE);
+    }
+
+
+    public String getLoginUnsuccessMessage() {
+        waitForElementVisible(driver, UserLoginPUI.LOGIN_UNSUCCESS_MESSAGE);
+        return getElementText(driver, UserLoginPUI.LOGIN_UNSUCCESS_MESSAGE);
+    }
+
+
 }
