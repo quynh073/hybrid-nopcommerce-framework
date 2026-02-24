@@ -11,38 +11,38 @@ public class UserRegisterPO extends BasePage {
     public UserRegisterPO(WebDriver driver){
         this.driver = driver;
     }
-    public void clickToGenderRadio() {
+    public void clickToGenderRadio(String gender) {
         waitForElementClickable(driver, UserRegisterPUI.GENDER_MALE_RADIO);
-        clickToElement(driver, UserRegisterPUI.GENDER_MALE_RADIO);
+        clickToElement(driver, UserRegisterPUI.GENDER_MALE_RADIO, gender);
     }
 
     public void enterToFirstNameTextbox(String firstName) {
-        waitForElementClickable(driver, UserRegisterPUI.FIRST_NAME_TEXTBOX);
+        waitForElementVisible(driver, UserRegisterPUI.FIRST_NAME_TEXTBOX);
         sendKeyToElement(driver, UserRegisterPUI.FIRST_NAME_TEXTBOX, firstName);
     }
 
     public void enterToLastNameTextbox(String lastName) {
-        waitForElementClickable(driver, UserRegisterPUI.LAST_NAME_TEXTBOX);
+        waitForElementVisible(driver, UserRegisterPUI.LAST_NAME_TEXTBOX);
         sendKeyToElement(driver, UserRegisterPUI.LAST_NAME_TEXTBOX, lastName);
     }
 
     public void enterToEmailTextbox(String email) {
-        waitForElementClickable(driver, UserRegisterPUI.EMAIL_TEXTBOX);
+        waitForElementVisible(driver, UserRegisterPUI.EMAIL_TEXTBOX);
         sendKeyToElement(driver, UserRegisterPUI.EMAIL_TEXTBOX, email);
     }
 
     public void enterToCompanyNameTextbox(String companyName) {
-        waitForElementClickable(driver, UserRegisterPUI.COMPANY_NAME_TEXTBOX);
+        waitForElementVisible(driver, UserRegisterPUI.COMPANY_NAME_TEXTBOX);
         sendKeyToElement(driver, UserRegisterPUI.COMPANY_NAME_TEXTBOX, companyName);
     }
 
     public void enterToPasswordTextbox(String password) {
-        waitForElementClickable(driver, UserRegisterPUI.PASSWORD_TEXTBOX);
+        waitForElementVisible(driver, UserRegisterPUI.PASSWORD_TEXTBOX);
         sendKeyToElement(driver, UserRegisterPUI.PASSWORD_TEXTBOX, password);
     }
 
     public void enterToConfirmPasswordTextbox(String confirmPassword) {
-        waitForElementClickable(driver, UserRegisterPUI.CONFIRM_PASSWORD_TEXTBOX);
+        waitForElementVisible(driver, UserRegisterPUI.CONFIRM_PASSWORD_TEXTBOX);
         sendKeyToElement(driver, UserRegisterPUI.CONFIRM_PASSWORD_TEXTBOX, confirmPassword);
     }
 

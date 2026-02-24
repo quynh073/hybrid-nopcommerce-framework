@@ -10,6 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.*;
 import pageObjects.user.*;
+import pageObjects.user.sidebarMyAccount.*;
 import reportConfigs.ExtentManager;
 
 import java.lang.reflect.Method;
@@ -21,10 +22,11 @@ public class Level_01_Page_Object extends BaseTest {
     private UserRegisterPO registerPage;
     private UserLoginPO loginPage;
     private UserCustomerInfoPO customerInfoPage;
+    private UserMyAccountPO myAccountPage;
     private String firstName, lastName, emailAddress, companyName, password;
     private String browserName;
 
-    private UserAddressPO addressPageObject;
+    private UserAddressesPO addressPageObject;
     private UserOrderPO orderPageObject;
     private UserRewardPointPO rewardPointPageObject;
 
@@ -51,7 +53,7 @@ public class Level_01_Page_Object extends BaseTest {
         registerPage = homePage.openRegisterPage();
 
         ExtentManager.getTest().log(Status.INFO, "User_01_Register - STEP 02: Click Gender radio button");
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
 
         ExtentManager.getTest().log(Status.INFO, "User_01_Register - STEP 03: Enter to FirstName textbox with value: " + firstName);
         registerPage.enterToFirstNameTextbox(firstName);
@@ -101,10 +103,10 @@ public class Level_01_Page_Object extends BaseTest {
         ExtentManager.startTest(method.getName() + " - Run on " + browserName, "User_03_MyAccount");
 
         ExtentManager.getTest().log(Status.INFO, "User_03_MyAccount - STEP 01: Open CustomerInfo page");
-        customerInfoPage = homePage.openCustomerInfoPage();
+        myAccountPage = homePage.openMyAccountPage();
 
         ExtentManager.getTest().log(Status.INFO, "User_03_MyAccount - STEP 02: Verify Gender radio is selected");
-        Assert.assertTrue(customerInfoPage.isGenderRadioSelected());
+        Assert.assertTrue(customerInfoPage.isGenderRadioSelected("gender-female"));
 
         ExtentManager.getTest().log(Status.INFO, "User_03_MyAccount - STEP 03: Verify FirstName value: " + firstName);
         Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(), firstName);
@@ -124,7 +126,7 @@ public class Level_01_Page_Object extends BaseTest {
         ExtentManager.startTest(method.getName() + " - Run on " + browserName, "User_Switch_Page");
 
         ExtentManager.getTest().log(Status.INFO, "User_Switch_Page - STEP 01: Open Address page");
-        addressPageObject = (UserAddressPO) customerInfoPage.openSidebarLinkByName("Addresses");
+        addressPageObject = (UserAddressesPO) customerInfoPage.openSidebarLinkByName("Addresses");
 
         ExtentManager.getTest().log(Status.INFO, "User_Switch_Page - STEP 02: Open RewardPoint page");
         rewardPointPageObject = (UserRewardPointPO) addressPageObject.openSidebarLinkByName("Reward points");
@@ -133,7 +135,7 @@ public class Level_01_Page_Object extends BaseTest {
         orderPageObject = (UserOrderPO) rewardPointPageObject.openSidebarLinkByName("Orders");
 
         ExtentManager.getTest().log(Status.INFO, "User_Switch_Page - STEP 04: Open Address page");
-        addressPageObject = (UserAddressPO) orderPageObject.openSidebarLinkByName("Addresses");
+        addressPageObject = (UserAddressesPO) orderPageObject.openSidebarLinkByName("Addresses");
 
         ExtentManager.getTest().log(Status.INFO, "User_Switch_Page - STEP 05: Open CustomerInfo page");
         customerInfoPage = (UserCustomerInfoPO) addressPageObject.openSidebarLinkByName("Customer info");

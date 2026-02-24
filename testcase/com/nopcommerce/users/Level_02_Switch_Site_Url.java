@@ -41,7 +41,7 @@ public class Level_02_Switch_Site_Url extends BaseTest {
         userHomePage = PageGenerator.getUserHomePage(driver);
         userRegisterPage = userHomePage.openRegisterPage();
 
-        userRegisterPage.clickToGenderRadio();
+        userRegisterPage.clickToGenderRadio("gender-female");
         userRegisterPage.enterToFirstNameTextbox(firstName);
         userRegisterPage.enterToLastNameTextbox(lastName);
         userRegisterPage.enterToEmailTextbox(emailAddress);
@@ -72,7 +72,7 @@ public class Level_02_Switch_Site_Url extends BaseTest {
     public void Role_02_Admin_Site_To_User_Site(){
         adminDasboardPage.openPageUrl(driver, GlobalConstant.DEV_USER_URL);
         userHomePage = PageGenerator.getUserHomePage(driver);
-        userHomePage.openCustomerInfoPage();
+        userHomePage.openMyAccountPage();
     }
 
     @AfterClass

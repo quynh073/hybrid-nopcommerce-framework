@@ -1,14 +1,14 @@
-package pageObjects.user;
+package pageObjects.user.sidebarMyAccount;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.PageGenerator;
-import pageUIs.user.UserSidebarPUI;
+import pageUIs.user.sidebarMyAccount.UserMyAccountPUI;
 
-public class UserSidebarPO extends BasePage {
+public class UserMyAccountPO extends BasePage {
     private WebDriver driver;
 
-    public UserSidebarPO(WebDriver driver) {
+    public UserMyAccountPO(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -38,9 +38,9 @@ public class UserSidebarPO extends BasePage {
 //        return PageGenerator.getUserCustomerInfoPage(driver);
 //    }
 
-    public UserSidebarPO openSidebarLinkByName(String pageName){
-        waitForElementVisible(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
-        clickToElement(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+    public UserMyAccountPO openSidebarLinkByName(String pageName){
+        waitForElementVisible(driver, UserMyAccountPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        clickToElement(driver, UserMyAccountPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
         switch (pageName){
             case "Customer info":
                 return PageGenerator.getUserCustomerInfoPage(driver);
@@ -50,13 +50,17 @@ public class UserSidebarPO extends BasePage {
                 return PageGenerator.getUserOrderPage(driver);
             case "Reward points":
                 return PageGenerator.getUserRewardPointPage(driver);
+            case "Change password":
+                return PageGenerator.getUserChangePasswordPage(driver);
+            case "My product reviews":
+                return PageGenerator.getUserMyProductReviewsPage(driver);
             default:
                 throw new RuntimeException("Page name is not valid!!!");
         }
     }
 
     public void openSidebarLinkByNames(String pageName){
-        waitForElementVisible(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
-        clickToElement(driver, UserSidebarPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        waitForElementVisible(driver, UserMyAccountPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
+        clickToElement(driver, UserMyAccountPUI.DYNAMIC_LINK_PAGE_NAME, pageName);
     }
 }

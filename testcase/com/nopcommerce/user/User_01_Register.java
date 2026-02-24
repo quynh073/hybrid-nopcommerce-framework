@@ -63,7 +63,7 @@ public class User_01_Register extends BaseTest {
         registerPage.refreshCurrentPage(driver);
 
         ExtentManager.getTest().log(Status.INFO, "STEP 01: Enter to valid information with invalid email");
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox("555");
@@ -84,7 +84,7 @@ public class User_01_Register extends BaseTest {
         registerPage.refreshCurrentPage(driver);
 
         ExtentManager.getTest().log(Status.INFO, "STEP 01: Click to gender radio");
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
 
         ExtentManager.getTest().log(Status.INFO, "STEP 02: Enter to firstname textbox with value - " + firstName);
         registerPage.enterToFirstNameTextbox(firstName);
@@ -120,7 +120,7 @@ public class User_01_Register extends BaseTest {
         registerPage = homePage.openRegisterPage();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 02: Enter to valid information with exist email - " + emailAddress);
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
@@ -142,7 +142,7 @@ public class User_01_Register extends BaseTest {
         homePage.openRegisterPage();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 02: Enter to valid information with password less than 6 characters");
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
@@ -164,7 +164,7 @@ public class User_01_Register extends BaseTest {
         homePage.openRegisterPage();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 02: Enter to valid information with unmatched confirm password");
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);

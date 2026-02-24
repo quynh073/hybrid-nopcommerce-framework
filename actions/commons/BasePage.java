@@ -7,13 +7,16 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageUIs.BasePUI;
 
 import java.security.Key;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 public class BasePage {
+    private WebDriver driver;
     public static BasePage getBasePage(){
         return new BasePage();
     }
@@ -134,6 +137,10 @@ public class BasePage {
         return driver.findElements(getByLocator(locator));
     }
 
+    protected List<WebElement> getListElement(WebDriver driver, String locator, String... restParameter){
+        return driver.findElements(getByLocator(castParameter(locator, restParameter)));
+    }
+
     public void clickToElement(WebDriver driver, String locator){
         getElement(driver, locator).click();
     }
@@ -143,6 +150,7 @@ public class BasePage {
     }
 
     public void sendKeyToElement(WebDriver driver, String locator, String keysToSend){
+        getElement(driver, locator).clear();
         getElement(driver, locator).sendKeys(keysToSend);
     }
 
@@ -180,7 +188,7 @@ public class BasePage {
         sleepInSeconds(2);
 
         List<WebElement> allItems = new WebDriverWait(driver, Duration.ofSeconds(GlobalConstant.LONG_TIME))
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(childItemLocator)));
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByLocator(childItemLocator)));
 
         sleepInSeconds(2);
         for(WebElement item : allItems){
@@ -203,6 +211,19 @@ public class BasePage {
         return getElement(driver, locator).getText();
     }
 
+    public List<String> getAllElementText(WebDriver driver, String locator, String... params) {
+        List<WebElement> elements = getListElement(driver, locator, params);
+
+        List<String> texts = new ArrayList<>();
+
+        for (WebElement e : elements) {
+            texts.add(e.getText());
+        }
+
+        return texts;
+    }
+
+
     public String getElementText(WebDriver driver, String locator, String... restParameter){
         return getElement(driver, castParameter(locator, restParameter)).getText();
     }
@@ -219,12 +240,12 @@ public class BasePage {
         Color.fromString(rgbaValue).asHex().toUpperCase();
     }
 
-    public void getListElementNumber(WebDriver driver, String locator){
-        getListElement(driver, locator).size();
+    public Integer getListElementNumber(WebDriver driver, String locator){
+        return getListElement(driver, locator).size();
     }
 
-    public void getListElementNumber(WebDriver driver, String locator, String... restParameter){
-        getListElement(driver, castParameter(locator, restParameter)).size();
+    public Integer getListElementNumber(WebDriver driver, String locator, String... restParameter){
+        return getListElement(driver, castParameter(locator, restParameter)).size();
     }
 
     public void checkToCheckBoxRadio(WebDriver driver, String locator){
@@ -243,12 +264,20 @@ public class BasePage {
         return getElement(driver, locator).isDisplayed();
     }
 
+    public boolean isElementDisplayed(WebDriver driver, String locator, String... restParameter){
+        return getElement(driver, castParameter(locator, restParameter)).isDisplayed();
+    }
+
     public boolean isElementEnabled(WebDriver driver, String locator){
         return getElement(driver, locator).isEnabled();
     }
 
     public boolean isElementSelected(WebDriver driver, String locator){
         return getElement(driver, locator).isSelected();
+    }
+
+    public boolean isElementSelected(WebDriver driver, String locator, String... restParameter){
+        return getElement(driver, castParameter(locator, restParameter)).isSelected();
     }
 
     public void switchToIframe(WebDriver driver, String locator){
@@ -379,4 +408,8 @@ public class BasePage {
     }
 
 
+    public void clickToFooterLink(WebDriver driver, String link) {
+        waitForElementClickable(driver, BasePUI.FOOTER_LINK, link);
+        clickToElement(driver, BasePUI.FOOTER_LINK, link);
+    }
 }

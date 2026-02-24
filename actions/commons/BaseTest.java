@@ -9,6 +9,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import pageObjects.PageGenerator;
+import pageObjects.user.UserHomePO;
+import pageObjects.user.UserLoginPO;
+import pageObjects.user.UserRegisterPO;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -17,6 +21,9 @@ import java.util.Random;
 public class BaseTest {
     private WebDriver driver;
     protected final Logger log;
+    private UserHomePO homePage;
+    private UserRegisterPO registerPage;
+    private UserLoginPO loginPage;
 
     public BaseTest() {
         log = (Logger) LogManager.getLogger(getClass());
@@ -102,6 +109,27 @@ public class BaseTest {
         return false;
     }
 
+    protected void registerAndLoginAccount(String firstName, String lastName, String email, String password){
+        homePage = PageGenerator.getUserHomePage(driver);
+        registerPage = homePage.openRegisterPage();
+        registerPage.enterToFirstNameTextbox(firstName);
+        registerPage.enterToLastNameTextbox(lastName);
+        registerPage.enterToEmailTextbox(email);
+        registerPage.enterToPasswordTextbox(password);
+        registerPage.enterToConfirmPasswordTextbox(password);
+        registerPage.clickToRegisterButton();
+        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
+        homePage = registerPage.clickToLogoutLink();
+        //Login
+        loginPage = homePage.openLoginPage();
+        loginPage.enterToEmailTextbox(email);
+        loginPage.enterToPasswordTextbox(password);
+        loginPage.clickToLoginButton();
+        homePage = PageGenerator.getUserHomePage(driver);
+        Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
+
+    }
+
     protected void closeBrowserDriver() {
         String cmd = null;
         try {
@@ -148,4 +176,6 @@ public class BaseTest {
             }
         }
     }
+
+
 }

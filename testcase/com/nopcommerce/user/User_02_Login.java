@@ -38,8 +38,9 @@ public class User_02_Login extends BaseTest {
         password = "le123456#";
 
         //Pre-condition
+        //Register
         registerPage = homePage.openRegisterPage();
-        registerPage.clickToGenderRadio();
+        registerPage.clickToGenderRadio("gender-female");
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
@@ -148,6 +149,7 @@ public class User_02_Login extends BaseTest {
         loginPage.clickToLoginButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify home page displayed");
+        homePage = PageGenerator.getUserHomePage(driver);
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
     }
 
@@ -156,3 +158,4 @@ public class User_02_Login extends BaseTest {
         closeBrowserDriver();
     }
 }
+

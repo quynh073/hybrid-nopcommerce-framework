@@ -3,6 +3,8 @@ package pageObjects.user;
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
 import pageObjects.PageGenerator;
+import pageObjects.user.sidebarMyAccount.UserCustomerInfoPO;
+import pageObjects.user.sidebarMyAccount.UserMyAccountPO;
 import pageUIs.user.UserHomePUI;
 
 public class UserHomePO extends BasePage {
@@ -25,12 +27,22 @@ public class UserHomePO extends BasePage {
     }
 
     public boolean isMyAccountLinkDisplayed() {
-        return isElementDisplayed(driver, UserHomePUI.MYACCOUNT_LINK);
+        return isElementDisplayed(driver, UserHomePUI.MY_ACCOUNT_LINK);
     }
 
-    public UserCustomerInfoPO openCustomerInfoPage() {
-        waitForElementClickable(driver, UserHomePUI.MYACCOUNT_LINK);
-        clickToElement(driver, UserHomePUI.MYACCOUNT_LINK);
-        return PageGenerator.getUserCustomerInfoPage(driver);
+    public UserMyAccountPO openMyAccountPage() {
+        waitForElementClickable(driver, UserHomePUI.MY_ACCOUNT_LINK);
+        clickToElement(driver, UserHomePUI.MY_ACCOUNT_LINK);
+        return PageGenerator.getUserMyAccountPage(driver);
+    }
+
+    public void enterToSearchTextbox(String keyWord) {
+        waitForElementVisible(driver, UserHomePUI.SEARCH_TEXTBOX);
+        sendKeyToElement(driver, UserHomePUI.SEARCH_TEXTBOX, keyWord);
+    }
+
+    public void clickToSearchButton() {
+        waitForElementVisible(driver, UserHomePUI.SEARCH_BUTTON);
+        clickToElement(driver, UserHomePUI.SEARCH_BUTTON);
     }
 }
