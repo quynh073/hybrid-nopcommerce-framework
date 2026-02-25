@@ -45,4 +45,14 @@ public class UserHomePO extends BasePage {
         waitForElementVisible(driver, UserHomePUI.SEARCH_BUTTON);
         clickToElement(driver, UserHomePUI.SEARCH_BUTTON);
     }
+
+    public void hoverToHeaderMenuByText(String topMenuItemName) {
+        waitForElementVisible(driver, UserHomePUI.TOP_MENU_LINK, topMenuItemName);
+        hoverToElement(driver, UserHomePUI.TOP_MENU_LINK, topMenuItemName);
+    }
+
+    public void clickToSubMenuByText(String topMenuItemName, String subMenuItemName) {
+        waitForElementVisible(driver, UserHomePUI.SUB_MENU_LINK, topMenuItemName, subMenuItemName);
+        clickToElement(driver, UserHomePUI.SUB_MENU_LINK, topMenuItemName, subMenuItemName);
+    }
 }

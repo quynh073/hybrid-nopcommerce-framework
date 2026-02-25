@@ -65,7 +65,11 @@ public class PageGenerator {
         return new UserProductDetailPO(driver);
     }
 
-    public static pageObjects.user.footer.UserSearchPO getUserSearchPage(WebDriver driver) {
-        return new pageObjects.user.footer.UserSearchPO(driver);
+    public static UserSearchPO getUserSearchPage(WebDriver driver) {
+        return new UserSearchPO(driver);
+    }
+
+    public static UserProductListPO getUserProductListPage(WebDriver driver) {
+        return new UserProductListPO(driver);
     }
 }

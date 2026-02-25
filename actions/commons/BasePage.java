@@ -219,7 +219,6 @@ public class BasePage {
         for (WebElement e : elements) {
             texts.add(e.getText());
         }
-
         return texts;
     }
 
@@ -290,6 +289,10 @@ public class BasePage {
 
     public void hoverToElement(WebDriver driver, String locator){
         new Actions(driver).moveToElement(getElement(driver, locator)).perform();
+    }
+
+    public void hoverToElement(WebDriver driver, String locator, String... restParameter){
+        new Actions(driver).moveToElement(getElement(driver, castParameter(locator, restParameter))).perform();
     }
 
     public void clickAndHoldToElement(WebDriver driver, String locator){
@@ -371,8 +374,8 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
     }
 
-    public void waitForElementVisible(WebDriver driver, String locator, String restParemeter){
-        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(castParameter(locator, restParemeter))));
+    public void waitForElementVisible(WebDriver driver, String locator, String... restParameter){
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(castParameter(locator, restParameter))));
     }
 
     public void waitForElementSelected(WebDriver driver, String locator){
