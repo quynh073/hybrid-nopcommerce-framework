@@ -1,75 +1,98 @@
-# Hybrid NopCommerce Automation Framework
+# 🛒 Hybrid NopCommerce Automation Framework
 
-This project is a Selenium WebDriver automation framework built using Java and TestNG to automate core features of the nopCommerce demo website.
+Automation testing framework for the [nopCommerce demo website](https://demo.nopcommerce.com), built with **Java + Selenium WebDriver + TestNG**, following **Hybrid Framework** architecture combining Page Object Model, Page UI pattern, and reusable base utilities.
 
-The framework is designed based on Hybrid Framework architecture combining:
-- Page Object Model (POM)
-- Page UI pattern
-- BasePage abstraction
-- Reusable utilities
-- Logging and reporting integration
+---
 
 ## 🛠 Tech Stack
 
 - Java
 - Selenium WebDriver
 - TestNG
-- Maven (if using)
 - Log4j2
 - Extent Report 5
-- Page Object Model
+- IntelliJ IDEA
+- Chrome / Firefox
 
-  ## 📁 Project Structure
+---
 
-hybrid-nopcommerce-framework
+## ⚙️ Prerequisites
+
+Before running the project, make sure you have installed:
+
+- ✅ **JDK 11 or higher** – [Download here](https://www.oracle.com/java/technologies/downloads/)
+- ✅ **IntelliJ IDEA** – [Download here](https://www.jetbrains.com/idea/)
+- ✅ **Google Chrome** (or Firefox) – latest version
+- ✅ **ChromeDriver** matching your Chrome version – [Download here](https://chromedriver.chromium.org/)
+- ✅ **Git** – to clone the repository
+
+---
+
+## 📁 Project Structure
+
+```
+hybrid-nopcommerce-framework/
 │
-├── actions/                # Base classes (BasePage, BaseTest, PageGeneratorManager)
-├── interface/pageUIs/      # UI locators (Page UI classes)
-├── testcase/com/nopcommerce/ # Test classes
-├── htmlExtent/             # Generated reports
-├── libExtent5/             # Extent Report libraries
-├── libLog4J2/              # Log configuration
-├── resources/              # Config files
-├── sourceDocs/             # Documentation
-└── libraries/              # External libraries
+├── actions/
+├── htmlExtent/
+├── interface/pageUIs/
+├── libExtent5/
+├── libLog4J2/
+├── libraries/
+├── resources/
+├── sourceDocs/
+├── testcase/com/nopcommerce/
+├── .gitignore
+└── hybrid-nopcommerce-framework.iml
+```
 
-## 🏗 Framework Architecture
+---
 
-This framework follows Hybrid design pattern:
+## ▶️ How to Run
 
-- Page Object Model for page interaction
-- Page UI pattern for locator separation
-- BasePage for reusable WebDriver methods
-- BaseTest for setup/teardown management
-- PageGeneratorManager for centralized page initialization
+### 1. Clone the repository
+```bash
+git clone <your-repo-link>
+```
 
-  ## ✅ Automated Features
+### 2. Open in IntelliJ IDEA
+- File → Open → select the project folder
+- Wait for IntelliJ to index the project
 
-- User Registration
-- Login
-- Search Product
-- Add to Cart
-- Sort Product (Name A-Z, Z-A)
-- Sort Product by Price
-- Display Product (Grid/List mode)
+### 3. Configure the test environment
+- Open `resources/` folder
+- Update browser type and base URL in the config file if needed
 
-  ## ▶️ How to Run the Project
+### 4. Run the tests
 
-1. Clone the repository:
-   git clone <your-repo-link>
-2. Open project in IntelliJ IDEA
-3. Run testng.xml file
-Or run test class directly from IDE.
+- Right-click on `testng.xml` → Run
 
-## 📊 Reporting
+---
 
-- Extent Report 5 integrated
-- HTML report generated in htmlExtent folder
-- Log4j2 for logging execution steps
+## 📊 Reporting & Logging
 
-  ## 🎯 Project Purpose
+- **Extent Report 5** – after each run, an HTML report is generated in the `htmlExtent/` folder
+- **Log4j2** – execution logs are printed to console and/or log file, configured via `libLog4J2/`
 
-This project was built for learning and practicing automation testing, focusing on:
-- Designing maintainable framework architecture
-- Writing clean and reusable test scripts
-- Implementing best practices in Selenium automation
+To view the report:
+```
+Open: htmlExtent/ExtentReport.html in any browser
+```
+
+---
+
+## 🎯 Project Purpose
+
+This project was built for **learning and practicing automation testing**, with a focus on:
+
+- Designing a clean and maintainable framework architecture
+- Applying best practices in Selenium + TestNG
+- Separating locators from logic (Page UI pattern)
+- Writing reusable and scalable test scripts
+
+---
+
+## 👤 Author
+
+- **GitHub:** [quynh073](https://github.com/quynh073)
+- Built for learning purposes — contributions and feedback are welcome!
