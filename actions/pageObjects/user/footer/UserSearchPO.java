@@ -40,7 +40,7 @@ public class UserSearchPO extends BasePage {
         return getElementText(driver, UserSearchPUI.NO_RESULT_MESSAGE);
     }
 
-    public Integer getResultItemCount() {
+    public Integer getResultProductCount() {
         waitForElementVisible(driver, UserSearchPUI.PRODUCT_COUNT);
         return getListElementNumber(driver, UserSearchPUI.PRODUCT_COUNT);
     }

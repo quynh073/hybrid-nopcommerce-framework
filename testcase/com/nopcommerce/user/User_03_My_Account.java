@@ -114,7 +114,7 @@ public class User_03_My_Account extends BaseTest {
         customerInfoPage.clickToSaveButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify update success message and information");
-        Assert.assertEquals(customerInfoPage.getUpdateSuccessMessage(), "The customer info has been updated successfully.");
+        Assert.assertEquals(customerInfoPage.getUserSuccessMessage(driver), "The customer info has been updated successfully.");
         Assert.assertTrue(customerInfoPage.isGenderRadioSelected("gender-male"));
         Assert.assertEquals(customerInfoPage.getFirstNameTextboxValue(), newFirstName);
         Assert.assertEquals(customerInfoPage.getLastNameTextboxValue(), newLastName);
@@ -149,7 +149,7 @@ public class User_03_My_Account extends BaseTest {
         addressesPage.clickToSaveButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 05: Verify address added successfully");
-        Assert.assertEquals(addressesPage.getUpdateSuccessMessage(), "The new address has been added successfully.");
+        Assert.assertEquals(addressesPage.getUserSuccessMessage(driver), "The new address has been added successfully.");
         Assert.assertTrue(addressesPage.getTextByClass("name").contains(firstNameAddress + " " + lastNameAddress));
         Assert.assertTrue(addressesPage.getTextByClass("email").contains("Email: " + emailAddress));
         Assert.assertTrue(addressesPage.getTextByClass("phone").contains("Phone number: " + phoneNumber));
@@ -179,9 +179,9 @@ public class User_03_My_Account extends BaseTest {
         changePasswordPage.clickToChangePasswordButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify success message");
-        Assert.assertEquals(changePasswordPage.getUpdateSuccessMessage(), "Password was changed");
-        changePasswordPage.clickToCloseIcon();
-        changePasswordPage.waitForNotificationBarInvisible();
+        Assert.assertEquals(changePasswordPage.getUserSuccessMessage(driver), "Password was changed");
+        changePasswordPage.clickToCloseIcon(driver);
+        changePasswordPage.waitForNotificationBarInvisible(driver);
 
         ExtentManager.getTest().log(Status.INFO, "STEP 05: Click to logout link");
         homePage = changePasswordPage.clickToLogoutLink();
@@ -233,9 +233,9 @@ public class User_03_My_Account extends BaseTest {
         productDetailPage.clickToSubmitReviewButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 07: Verify success message");
-        Assert.assertEquals(productDetailPage.getUpdateSuccessMessage(), "Product review is successfully added.");
-        productDetailPage.clickToCloseIcon();
-        productDetailPage.waitForNotificationBarInvisible();
+        Assert.assertEquals(productDetailPage.getUserSuccessMessage(driver), "Product review is successfully added.");
+        productDetailPage.clickToCloseIcon(driver);
+        productDetailPage.waitForNotificationBarInvisible(driver);
 
         ExtentManager.getTest().log(Status.INFO, "STEP 08: Click to my account link");
         myAccountPage = productDetailPage.openMyAccountPage();

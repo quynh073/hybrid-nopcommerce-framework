@@ -55,4 +55,9 @@ public class UserHomePO extends BasePage {
         waitForElementVisible(driver, UserHomePUI.SUB_MENU_LINK, topMenuItemName, subMenuItemName);
         clickToElement(driver, UserHomePUI.SUB_MENU_LINK, topMenuItemName, subMenuItemName);
     }
+
+    public void clickToProductByText(String product) {
+        waitForElementClickable(driver, UserHomePUI.PRODUCT_LINK, product);
+        clickToElement(driver, UserHomePUI.PRODUCT_LINK, product);
+    }
 }

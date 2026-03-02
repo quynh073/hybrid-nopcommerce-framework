@@ -17,7 +17,6 @@ public class UserAddressesPUI {
     public static final String STATE_PROVINCE_PARENT = "id=Address_StateProvinceId";
     public static final String STATE_PROVINCE_CHILD = "xpath=//select[@id='Address_StateProvinceId']//option";
     public static final String SAVE_BUTTON = "xpath=//button[contains(@class,'save-address-button')]";
-    public static final String UPDATE_SUCCESS_MESSAGE = "css=div.bar-notification.success>p.content";
     public static final String ADD_INFORMATION = "class=%s";
 
 

@@ -9,6 +9,5 @@ public class UserHomePUI {
     public static final String TOP_MENU_LINK = "xpath=//ul[contains(@class,'top-menu')][1]//a[contains(text(),'%s')]";
     public static final String SUB_MENU_LINK = "xpath=//ul[contains(@class,'top-menu')][1]//a[contains(text(),'%s')]//following-sibling::ul//a[contains(text(),'%s')]";
 
-
-
+    public static final String PRODUCT_LINK = "xpath=//div[@class='product-item']//a[text()='%s']";
 }

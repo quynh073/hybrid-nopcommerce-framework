@@ -35,23 +35,10 @@ public class UserChangePasswordPO extends UserMyAccountPO {
         clickToElement(driver, UserChangePasswordPUI.CHANGE_PASSWORD_TEXTBOX);
     }
 
-    public String getUpdateSuccessMessage() {
-        waitForElementVisible(driver, UserChangePasswordPUI.UPDATE_SUCCESS_MESSAGE);
-        return getElementText(driver, UserChangePasswordPUI.UPDATE_SUCCESS_MESSAGE);
-    }
-
-    public void clickToCloseIcon() {
-        waitForElementClickable(driver, UserChangePasswordPUI.CLOSE_ICON);
-        clickToElement(driver, UserChangePasswordPUI.CLOSE_ICON);
-    }
-
     public UserHomePO clickToLogoutLink() {
         waitForElementClickable(driver, UserChangePasswordPUI.LOGOUT_LINK);
         clickToElement(driver, UserChangePasswordPUI.LOGOUT_LINK);
         return PageGenerator.getUserHomePage(driver);
     }
 
-    public void waitForNotificationBarInvisible() {
-        waitForElementInvisible(driver, UserChangePasswordPUI.NOTIFICATION_BAR);
-    }
 }

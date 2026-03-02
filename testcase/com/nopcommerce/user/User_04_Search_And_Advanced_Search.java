@@ -89,7 +89,7 @@ public class User_04_Search_And_Advanced_Search extends BaseTest {
         searchPage.clickToSearchButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify 2 products displayed");
-        Assert.assertEquals(searchPage.getResultItemCount(), 2);
+        Assert.assertEquals(searchPage.getResultProductCount(), 2);
         Assert.assertTrue(searchPage.isProductNameDisplay("Lenovo IdeaCentre"));
         Assert.assertTrue(searchPage.isProductNameDisplay("Lenovo Thinkpad Carbon Laptop"));
 
@@ -110,7 +110,7 @@ public class User_04_Search_And_Advanced_Search extends BaseTest {
         searchPage.clickToSearchButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 04: Verify 1 products displayed");
-        Assert.assertEquals(searchPage.getResultItemCount(), 1);
+        Assert.assertEquals(searchPage.getResultProductCount(), 1);
         Assert.assertTrue(searchPage.isProductNameDisplay("Lenovo IdeaCentre"));
 
     }
@@ -165,7 +165,7 @@ public class User_04_Search_And_Advanced_Search extends BaseTest {
         searchPage.clickToSearchButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 07: Verify 1 products displayed");
-        Assert.assertEquals(searchPage.getResultItemCount(), 1);
+        Assert.assertEquals(searchPage.getResultProductCount(), 1);
         Assert.assertTrue(searchPage.isProductNameDisplay("Apple MacBook Pro"));
 
     }
@@ -227,10 +227,12 @@ public class User_04_Search_And_Advanced_Search extends BaseTest {
         searchPage.clickToSearchButton();
 
         ExtentManager.getTest().log(Status.INFO, "STEP 08: Verify 1 products displayed");
-        Assert.assertEquals(searchPage.getResultItemCount(), 1);
+        Assert.assertEquals(searchPage.getResultProductCount(), 1);
         Assert.assertTrue(searchPage.isProductNameDisplay("Apple MacBook Pro"));
 
     }
+
+
 
     @AfterClass
     public void afterClass(){

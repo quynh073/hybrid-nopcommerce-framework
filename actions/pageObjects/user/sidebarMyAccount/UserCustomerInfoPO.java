@@ -76,8 +76,5 @@ public class UserCustomerInfoPO extends UserMyAccountPO {
         clickToElement(driver, UserCustomerInfoPUI.SAVE_BUTTON);
     }
 
-    public String getUpdateSuccessMessage() {
-        waitForElementVisible(driver, UserCustomerInfoPUI.UPDATE_SUCCESS_MESSAGE);
-        return getElementText(driver, UserCustomerInfoPUI.UPDATE_SUCCESS_MESSAGE);
-    }
+
 }

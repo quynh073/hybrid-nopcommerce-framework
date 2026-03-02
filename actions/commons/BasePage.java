@@ -1,6 +1,5 @@
 package commons;
 
-import com.google.common.util.concurrent.ClosingFuture;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
@@ -8,8 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageUIs.BasePUI;
+import pageUIs.user.UserProductDetailPUI;
 
-import java.security.Key;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -253,6 +252,13 @@ public class BasePage {
         }
     }
 
+    public void checkToCheckBoxRadio(WebDriver driver, String locator, String... restParameter){
+        if(!getElement(driver, castParameter(locator, restParameter)).isSelected()){
+            getElement(driver, castParameter(locator, restParameter)).click();
+        }
+    }
+
+
     public void uncheckToCheckBoxRadio(WebDriver driver, String locator){
         if(getElement(driver, locator).isSelected()){
             getElement(driver, locator).click();
@@ -415,4 +421,19 @@ public class BasePage {
         waitForElementClickable(driver, BasePUI.FOOTER_LINK, link);
         clickToElement(driver, BasePUI.FOOTER_LINK, link);
     }
+
+    public String getUserSuccessMessage(WebDriver driver) {
+        waitForElementVisible(driver, BasePUI.UPDATE_SUCCESS_MESSAGE);
+        return getElementText(driver, BasePUI.UPDATE_SUCCESS_MESSAGE);
+    }
+
+    public void clickToCloseIcon(WebDriver driver) {
+        waitForElementClickable(driver, BasePUI.CLOSE_ICON);
+        clickToElement(driver, BasePUI.CLOSE_ICON);
+    }
+
+    public void waitForNotificationBarInvisible(WebDriver driver) {
+        waitForElementInvisible(driver, BasePUI.NOTIFICATION_BAR);
+    }
+
 }

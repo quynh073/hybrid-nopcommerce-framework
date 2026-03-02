@@ -84,10 +84,7 @@ public class UserAddressesPO extends UserMyAccountPO {
         clickToElement(driver, UserAddressesPUI.SAVE_BUTTON);
     }
 
-    public String getUpdateSuccessMessage() {
-        waitForElementVisible(driver, UserAddressesPUI.UPDATE_SUCCESS_MESSAGE);
-        return getElementText(driver, UserAddressesPUI.UPDATE_SUCCESS_MESSAGE);
-    }
+
 
     public List<String> getTextByClass(String name) {
         waitForElementVisible(driver, UserAddressesPUI.ADD_INFORMATION, name);
